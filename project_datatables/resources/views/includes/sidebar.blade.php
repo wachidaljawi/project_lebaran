@@ -14,7 +14,7 @@
           <img src="{{asset ("AdminLTE/dist/img/user2-160x160.jpg")}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">Rachmat Wachid</a>
         </div>
       </div>
 
@@ -31,31 +31,31 @@
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="fa-user-circle"></i>
-                <p>Data Karyawan</p>
-              </a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="fa-briefcase"></i>
-                    <p>Jabatan</p>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="nav-icon fas fa-edit"></i>
-                    <p>Status</p>
-                </a>
-            </li>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="#" class="nav-link active">
-                  <i class="fa-graduation-cap"></i>
-                  <p>Pendidikan</p>
+                <li class="nav-item">
+                <a href="#" class="nav-link @yield('dataKaryawan')">
+                    <i class="nav-icon fas fa-user-circle"></i>
+                    <p>Data Karyawan</p>
                 </a>
-              </li>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link @yield('dataJabatan')">
+                        <i class="nav-icon fas fa-briefcase"></i>
+                        <p>Jabatan</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link @yield('dataStatus')">
+                        <i class="nav-icon fas fa-edit"></i>
+                        <p>Status</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link @yield('dataPendidikan')">
+                    <i class="nav-icon fas fa-graduation-cap"></i>
+                    <p>Pendidikan</p>
+                    </a>
+                </li>
             </ul>
           </li>
         </ul>
