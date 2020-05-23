@@ -33,25 +33,25 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                <a href="#" class="nav-link @yield('dataKaryawan')">
+                <a href="/karyawan" class="nav-link @yield('dataKaryawan')">
                     <i class="nav-icon fas fa-user-circle"></i>
                     <p>Data Karyawan</p>
                 </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link @yield('dataJabatan')">
+                    <a href="/jabatan" class="nav-link @yield('dataJabatan')">
                         <i class="nav-icon fas fa-briefcase"></i>
                         <p>Jabatan</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link @yield('dataStatus')">
+                    <a href="/status" class="nav-link @yield('dataStatus')">
                         <i class="nav-icon fas fa-edit"></i>
                         <p>Status</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link @yield('dataPendidikan')">
+                    <a href="/pendidikan" class="nav-link @yield('dataPendidikan')">
                     <i class="nav-icon fas fa-graduation-cap"></i>
                     <p>Pendidikan</p>
                     </a>

@@ -15,7 +15,9 @@ class CreatePendidikansTable extends Migration
     {
         Schema::create('pendidikans', function (Blueprint $table) {
             $table->id();
+            $table->string('pendidikan', 100);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -24,7 +24,7 @@ class StatusController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.status.form-status');
     }
 
     /**
@@ -35,7 +35,11 @@ class StatusController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validateData = $request->validate([
+            'status' => 'required',
+        ]);
+        status::create($validateData);
+        return redirect('/status')->with('pesan', "Status $request->status Berhasil ditambahkan");
     }
 
     /**
@@ -57,7 +61,7 @@ class StatusController extends Controller
      */
     public function edit(status $status)
     {
-        //
+        return view('pages.status.edit-status', compact('status'));
     }
 
     /**
@@ -69,7 +73,12 @@ class StatusController extends Controller
      */
     public function update(Request $request, status $status)
     {
-        //
+        $validateData = $request->validate([
+            'status' => 'required',
+
+        ]);
+        $status->update($validateData);
+        return redirect('/status')->with('pesan', "Status $status->status Berhasil diupdate");
     }
 
     /**
@@ -80,6 +89,7 @@ class StatusController extends Controller
      */
     public function destroy(status $status)
     {
-        //
+        $status->delete();
+        return redirect('/status')->with('pesan', "Status $status->status berhasil dihapus");
     }
 }
