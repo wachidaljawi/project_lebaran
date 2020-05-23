@@ -14,7 +14,7 @@ class PendidikanController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.pendidikan.data-pendidikan', ['pendidikan' => pendidikan::all()]);
     }
 
     /**
@@ -24,7 +24,7 @@ class PendidikanController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.pendidikan.form-pendidikan');
     }
 
     /**
@@ -35,7 +35,12 @@ class PendidikanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validateData = $request->validate([
+            'pendidikan' => 'required',
+        ]);
+        pendidikan::create($validateData);
+        return redirect('/pendidikan')->with('pesan', "Data $request->pendidikan Berhasil ditambahkan");
+
     }
 
     /**
@@ -57,7 +62,7 @@ class PendidikanController extends Controller
      */
     public function edit(pendidikan $pendidikan)
     {
-        //
+        return view('pages.pendidikan.edit-pendidikan', compact('pendidikan'));
     }
 
     /**
@@ -69,7 +74,12 @@ class PendidikanController extends Controller
      */
     public function update(Request $request, pendidikan $pendidikan)
     {
-        //
+        $validateData = $request->validate([
+            'pendidikan' => 'required',
+        ]);
+        $pendidikan->update($validateData);
+        return redirect('/pendidikan')->with('pesan', "Data $pendidikan->pendidikan Berhasil diupdate");
+
     }
 
     /**
@@ -80,6 +90,8 @@ class PendidikanController extends Controller
      */
     public function destroy(pendidikan $pendidikan)
     {
-        //
+        $pendidikan->delete();
+        return redirect('/pendidikan')->with('pesan', "Data $pendidikan->pendidikan berhasil dihapus");
+
     }
 }

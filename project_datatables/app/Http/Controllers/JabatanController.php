@@ -90,7 +90,7 @@ class JabatanController extends Controller
     public function destroy(jabatan $jabatan)
     {
         $jabatan->delete();
-        return redirect('/jabatan')->with('pesan', "Status $jabatan->nama_jabatan berhasil dihapus");
+        return redirect('/jabatan')->with('pesan', "Data $jabatan->nama_jabatan berhasil dihapus");
 
     }
 }
