@@ -14,7 +14,7 @@ class JabatanController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.jabatan.data-jabatan', ['jabatan' => jabatan::all()]);
     }
 
     /**
@@ -24,7 +24,7 @@ class JabatanController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.jabatan.form-jabatan');
     }
 
     /**
@@ -35,7 +35,12 @@ class JabatanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validateData = $request->validate([
+            'nama_jabatan' => 'required',
+        ]);
+        jabatan::create($validateData);
+        return redirect('/jabatan')->with('pesan', "Data $request->nama_jabatan Berhasil ditambahkan");
+
     }
 
     /**
@@ -57,7 +62,7 @@ class JabatanController extends Controller
      */
     public function edit(jabatan $jabatan)
     {
-        //
+        return view('pages.jabatan.edit-jabatan', compact('jabatan'));
     }
 
     /**
@@ -69,7 +74,11 @@ class JabatanController extends Controller
      */
     public function update(Request $request, jabatan $jabatan)
     {
-        //
+        $validateData = $request->validate([
+            'nama_jabatan' => 'required',
+        ]);
+        $jabatan->update($validateData);
+        return redirect('/jabatan')->with('pesan', "Data $jabatan->nama_jabatan Berhasil diupdate");
     }
 
     /**
@@ -80,6 +89,8 @@ class JabatanController extends Controller
      */
     public function destroy(jabatan $jabatan)
     {
-        //
+        $jabatan->delete();
+        return redirect('/jabatan')->with('pesan', "Status $jabatan->nama_jabatan berhasil dihapus");
+
     }
 }

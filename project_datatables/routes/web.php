@@ -17,4 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 // Route::get('/status', 'StatusController@index')->name('status.index');
-Route::resource('status','StatusController');
+Route::resource('status', 'StatusController');
+Route::resource('jabatan', 'JabatanController');
+Route::resource('pendidikan', 'PendidikanController');
+Route::resource('karyawan', 'KaryawanController');
