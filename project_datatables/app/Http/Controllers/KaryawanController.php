@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\karyawan;
+use App\status;
+use App\jabatan;
+use App\pendidikan;
 use Illuminate\Http\Request;
 
 class KaryawanController extends Controller
@@ -12,9 +15,19 @@ class KaryawanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $karyawan = karyawan::all();
+        $status = status::all();
+        $jabatan = jabatan::all();
+        $pendidikan = pendidikan::all();
+        // return response()->json($karyawan);
+        if ($request->ajax()) {
+
+            return datatables()->of($karyawan)->make(true);
+        }
+
+        return view('pages.karyawan.data-karyawan', compact('karyawan'));
     }
 
     /**
@@ -24,7 +37,10 @@ class KaryawanController extends Controller
      */
     public function create()
     {
-        //
+        $status = status::all();
+        $jabatan = jabatan::all();
+        $pendidikan = pendidikan::all();
+        return view('pages.karyawan.form-karyawan', compact('status', 'jabatan', 'pendidikan'));
     }
 
     /**
@@ -35,7 +51,23 @@ class KaryawanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'nama' => 'required|min:3|max:50',
+            'alamat' => 'required',
+            'umur' => '',
+            'gender' => 'required',
+            'no_telp' => 'required',
+            'tgl_lahir' => 'required',
+            'status_id' => 'required',
+            'jabatan_id' => 'required',
+            'pendidikan_id' => 'required',
+            'tgl_masuk' => 'required',
+
+        ]);
+        $karyawan = karyawan::create($validatedData);
+        // $karyawan->hobi()->attach($request->hobi);
+        return redirect('/karyawan')->with('pesan', "Data $request->nama Berhasil ditambahkan");
+
     }
 
     /**
@@ -46,7 +78,8 @@ class KaryawanController extends Controller
      */
     public function show(karyawan $karyawan)
     {
-        //
+
+        return view('pages.karyawan.show-karyawan', ['karyawan' => $karyawan]);
     }
 
     /**
@@ -57,7 +90,11 @@ class KaryawanController extends Controller
      */
     public function edit(karyawan $karyawan)
     {
-        //
+        $status = status::all();
+        $jabatan = jabatan::all();
+        $pendidikan = pendidikan::all();
+
+        return view('pages.karyawan.edit-karyawan', ['karyawan' => $karyawan, 'status' => $status, 'jabatan' => $jabatan, 'pendidikan' => $pendidikan]);
     }
 
     /**
@@ -69,7 +106,20 @@ class KaryawanController extends Controller
      */
     public function update(Request $request, karyawan $karyawan)
     {
-        //
+        $validatedData = $request->validate([
+            'nama' => 'required|min:3|max:50',
+            'alamat' => 'required',
+            'umur' => '',
+            'gender' => 'required',
+            'no_telp' => 'required',
+            'tgl_lahir' => 'required',
+            'status_id' => 'required',
+            'jabatan_id' => 'required',
+            'pendidikan_id' => 'required',
+            'tgl_masuk' => 'required',
+        ]);
+        $karyawan->update($validatedData);
+        return redirect('/karyawan')->with('pesan', "Data $karyawan->nama Berhasil diupdate");
     }
 
     /**
@@ -80,6 +130,7 @@ class KaryawanController extends Controller
      */
     public function destroy(karyawan $karyawan)
     {
-        //
+        $karyawan->delete();
+        return redirect('/karyawan')->with('pesan', "Data $karyawan->nama berhasil dihapus");
     }
 }

@@ -9,4 +9,6 @@ class pendidikan extends Model
 {
     protected $guarded = [];
     use SoftDeletes;
+
+
 }

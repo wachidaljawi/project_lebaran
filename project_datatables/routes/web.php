@@ -20,4 +20,7 @@ Route::get('/', function () {
 Route::resource('status', 'StatusController');
 Route::resource('jabatan', 'JabatanController');
 Route::resource('pendidikan', 'PendidikanController');
-Route::resource('karyawan', 'KaryawanController');
+Route::resource('karyawan', 'KaryawanController', [
+    'anyData' => 'datatables.data',
+    'getIndex' => 'datatables',
+]);
