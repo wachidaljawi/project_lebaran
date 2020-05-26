@@ -6,49 +6,64 @@
 <div class="content-wrapper">
     <section class="content">
         <div class="container mt-3">
-            <div class="row">
-                <div class="col-12">
-                    <div class="py-4 d-flex justify-content-end align-items-center">
-                        <h1 class="h2 mr-auto">Tabel Karyawan</h1>
-                            <a href="{{ url('/karyawan/create') }}" class="btn btn-primary"><i class="nav-icon fas fa-plus mr-2"></i>Tambah Data</a>
-                    </div>
-                    @if(session()->has('pesan'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session()->get('pesan') }}
+            <div class="card ml-2">
+                
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card-header">
+
+                            <div class="py-4 d-flex justify-content-end align-items-center">
+                                <h1 class="h2 mr-auto">Tabel Karyawan</h1>
+                                    <a href="{{ url('/karyawan/create') }}" class="btn btn-primary"><i class="nav-icon fas fa-plus mr-2"></i>Tambah Data</a>
+                            </div>
+                            @if(session()->has('pesan'))
+                                <div class="alert alert-success" role="alert">
+                                    {{ session()->get('pesan') }}
+                                </div>
+                            @endif
                         </div>
-                    @endif
-                    <table class="table table-striped" id="example" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Nama Karyawan</th>
-                                <th>Jenis Kelamin</th>
-                                <th>No Telp</th>
-                                <th>Status</th>
-                                <th>Jabatan</th>
-                                <th>pendidikan</th>
-                                <th>Tanggal Masuk</th>
-                                
-                            </tr>
-                        </thead>
-                            <tbody>
-                                @forelse ($karyawan as $item)
-                                <tr>
-                                    <th>{{$loop->iteration}}</th>
-                                    <td><a href="{{ '/karyawan/'.$item->id }}">{{$item->nama}}</a></td>
-                                    <td>{{$item->gender}}</td>
-                                    <td>{{$item->no_telp}}</td>
-                                    <td>{{$item->status->status}}</td>
-                                    <td>{{$item->jabatan->nama_jabatan}}</td>
-                                    <td>{{$item->pendidikan->pendidikan}}</td>
-                                    <td>{{$item->tgl_masuk}}</td>
-                                   
-                                </tr>
-                                @empty
-                                <td colspan="6" class="text-center">Data Kosong</td>
-                                @endforelse
-                            </tbody>
-                    </table>
+                        <div class="card-body">
+
+                            <table class="table table-striped nowrap" id="example" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>No</th>
+                                        <th>Nama Karyawan</th>
+                                        <th>Jenis Kelamin</th>
+                                        <th>No Telp</th>
+                                        <th>Status</th>
+                                        <th>Jabatan</th>
+                                        <th>pendidikan</th>
+                                        <th>Tanggal Masuk</th>
+                                        <th>umur</th>
+                                        <th>alamat</th>
+                                        
+                                    </tr>
+                                </thead>
+                                    <tbody>
+                                        @forelse ($karyawan as $item)
+                                        <tr class="text-center">
+                                            <td></td>
+                                            <th>{{$loop->iteration}}</th>
+                                            <td><a href="{{ '/karyawan/'.$item->id }}">{{$item->nama}}</a></td>
+                                            <td>{{$item->gender}}</td>
+                                            <td>{{$item->no_telp}}</td>
+                                            <td>{{$item->status->status}}</td>
+                                            <td>{{$item->jabatan->nama_jabatan}}</td>
+                                            <td>{{$item->pendidikan->pendidikan}}</td>
+                                            <td>{{$item->tgl_masuk}}</td>
+                                            <td>{{$item->umur}}</td>
+                                            <td>{{$item->alamat}}</td>
+                                           
+                                        </tr>
+                                        @empty
+                                        <td colspan="6" class="text-center">Data Kosong</td>
+                                        @endforelse
+                                    </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
