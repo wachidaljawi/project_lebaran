@@ -31,16 +31,12 @@
                                 <tr>
                                     <th>{{$loop->iteration}}</th>
                                     @if($item-> status == 'Karyawan')
-                                        <td><span class="badge badge-success">{{ $item->status }}</td>
-                                    
-                                    @endif
-                                    @if($item-> status == 'Kontrak')
-                                        <td><span class="badge badge-primary">{{ $item->status }}</td>
-                                    
-                                    @endif
-                                    @if($item-> status == 'Magang')
-                                        <td><span class="badge badge-secondary badge-lg">{{ $item->status }}</td>
-                                    
+                                        <td class="badge badge-success mt-2">{{ $item->status }}</td>
+                                    @elseif($item-> status == 'Kontrak')
+                                        <td class="badge badge-primary mt-2">{{ $item->status }}</td>
+                                    @else
+                                        <td class="badge badge-secondary mt-2">{{ $item->status }}</td>
+
                                     @endif
                                     {{-- <td><span>{{$item->status}}</span></td> --}}
                                     <td>

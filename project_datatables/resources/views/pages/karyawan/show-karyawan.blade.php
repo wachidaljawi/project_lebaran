@@ -1,6 +1,6 @@
 @extends ('layouts.master')
-@section ('title','Edit karyawan')
-@section ('editKaryawan','active')
+@section ('title','Show karyawan')
+@section ('showKaryawan','active')
 @section ('content')
 <div class="content-wrapper">
     <div class="content">

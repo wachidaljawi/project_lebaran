@@ -24,7 +24,7 @@
                         </div>
                         <div class="card-body">
 
-                            <table class="table table-striped nowrap" id="example" style="width:100%">
+                            <table class="table table-striped table-responsive nowrap" id="example">
                                 <thead>
                                     <tr>
                                         <th></th>
@@ -34,10 +34,11 @@
                                         <th>No Telp</th>
                                         <th>Status</th>
                                         <th>Jabatan</th>
-                                        <th>pendidikan</th>
+                                        <th>Pendidikan</th>
                                         <th>Tanggal Masuk</th>
-                                        <th>umur</th>
-                                        <th>alamat</th>
+                                        <th>Umur</th>
+                                        <th>Alamat</th>
+                                        <th>Lahir</th>
                                         
                                     </tr>
                                 </thead>
@@ -55,7 +56,7 @@
                                             <td>{{$item->tgl_masuk}}</td>
                                             <td>{{$item->umur}}</td>
                                             <td>{{$item->alamat}}</td>
-                                           
+                                            <td>{{$item->tgl_lahir}}</td>
                                         </tr>
                                         @empty
                                         <td colspan="6" class="text-center">Data Kosong</td>
