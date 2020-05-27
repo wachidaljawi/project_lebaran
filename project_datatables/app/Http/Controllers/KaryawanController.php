@@ -18,14 +18,11 @@ class KaryawanController extends Controller
     public function index(Request $request)
     {
         $karyawan = karyawan::all();
-        $status = status::all();
-        $jabatan = jabatan::all();
-        $pendidikan = pendidikan::all();
-        // return response()->json($karyawan);
-        if ($request->ajax()) {
 
-            return datatables()->of($karyawan)->make(true);
-        }
+        // if ($request->ajax()) {
+
+        //     return datatables()->of($karyawan)->make(true);
+        // }
 
         return view('pages.karyawan.data-karyawan', compact('karyawan'));
     }
@@ -54,7 +51,7 @@ class KaryawanController extends Controller
         $validatedData = $request->validate([
             'nama' => 'required|min:3|max:50',
             'alamat' => 'required',
-            'umur' => '',
+            'umur' => 'required|int',
             'gender' => 'required',
             'no_telp' => 'required',
             'tgl_lahir' => 'required',
@@ -109,7 +106,7 @@ class KaryawanController extends Controller
         $validatedData = $request->validate([
             'nama' => 'required|min:3|max:50',
             'alamat' => 'required',
-            'umur' => '',
+            'umur' => 'required|int',
             'gender' => 'required',
             'no_telp' => 'required',
             'tgl_lahir' => 'required',
