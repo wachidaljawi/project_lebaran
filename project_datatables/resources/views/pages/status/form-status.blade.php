@@ -15,8 +15,18 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="status">status</label>
-                                    <input type="text" class="form-control" id="status"  placeholder="Masukan status anda" name="status" value="{{ old('status') }}">
+                                    <label for="status">Status</label>
+                                    <select name="status" id="status" class="form-control">
+                                        <option value="Karyawan" {{ old('status') == 'Karyawan' ? 'selected' : '' }}>
+                                            Karyawan
+                                        </option>
+                                        <option value="Kontrak" {{ old('status') == 'Kontrak' ? 'selected' : '' }}>
+                                            Kontrak
+                                        </option>
+                                        <option value="Magang" {{ old('status') == 'Magang' ? 'selected' : '' }}>
+                                            Karyawan
+                                        </option>
+                                    </select>
                                     @error('status')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror

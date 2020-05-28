@@ -43,32 +43,26 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="gender">Jenis kelamin</label>
-                                </div>
-                                <span>
-                                <div class="form-check form-check-inline">
-                                    <span><input type="radio" class="form-check-input" name="gender" id="laki-laki" value="Laki-laki" {{old('gender') == 'L' ?'checked' : ''}}>
-                                    <label for="Laki-laki" class="form form-check-input">Laki-Laki</label></span>
-                                </div>
-                                </span>
-                                <div class="form-check form-check-inline">
-                                    <span><input type="radio" class="form-check-input" name="gender" id="perempuan" value="Perempuan" {{old('gender') == 'P' ?'checked' : ''}}>
-                                    <label for="perempuan" class="form form-check-input">Perempuan</label></span>
-                                </div>
-                                @error('gender')
-                                    <div class="alert alert-danger">{{($message)}}</div>
-                                @enderror
+                            <div class="form-group">
+                                <label for="gender">Jenis kelamin</label>
                             </div>
-                            <div class="col-md-9">
-                                <div class="form-group">
+                            <span>
+                            <div class="form-check form-check-inline">
+                                <span><input type="radio" class="form-check-input" name="gender" id="laki-laki" value="Laki-laki" {{old('gender') == 'L' ?'checked' : ''}}>
+                                <label for="Laki-laki" class="form form-check-input">Laki-Laki</label></span>
+                            </div>
+                            </span>
+                            <div class="form-check form-check-inline">
+                                <span><input type="radio" class="form-check-input" name="gender" id="perempuan" value="Perempuan" {{old('gender') == 'P' ?'checked' : ''}}>
+                                <label for="perempuan" class="form form-check-input">Perempuan</label></span>
+                            </div>
+                            @error('gender')
+                                <div class="alert alert-danger">{{($message)}}</div>
+                            @enderror
+                            <div class="form-group">
                                     <label for="alamat">Alamat</label>
                                     <textarea name="alamat" id="alamat" cols="3" class="form-control">{{old('alamat')}}</textarea>
                                 </div>
-                            </div>
-                        </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -127,15 +121,15 @@
                             </div>
                         </div>
                         <div class="form-group">
-                                <label>Tanggal Masuk</label>
-                                <div class="input-group date" id="tgl_masuk">
-                                    <input type="date" class="form-control datetimepicker-input" name="tgl_masuk" value="{{ old('tgl_masuk') }}">
+                            <label>Tanggal Masuk</label>
+                            <div class="input-group date" id="tgl_masuk">
+                                <input type="date" class="form-control datetimepicker-input" name="tgl_masuk" value="{{ old('tgl_masuk') }}">
                                     
-                                </div>
-                                @error('tgl_lahir')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
                             </div>
+                            @error('tgl_lahir')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
                         <button type="submit" class="btn btn-primary btn-sm">Simpan</button>
                         <a href="/karyawan" class="btn btn-outline-warning btn-sm">Kembali</a>
                     </form>

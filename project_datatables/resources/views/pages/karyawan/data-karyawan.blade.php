@@ -39,6 +39,7 @@
                                         <th>Umur</th>
                                         <th>Alamat</th>
                                         <th>Lahir</th>
+                                        <th>Opsi</th>
                                         
                                     </tr>
                                 </thead>
@@ -57,6 +58,18 @@
                                             <td>{{$item->umur}}</td>
                                             <td>{{$item->alamat}}</td>
                                             <td>{{$item->tgl_lahir}}</td>
+                                            <td>
+                                                <form action="{{ route ('karyawan.edit', $item->id) }}" method="GET" class="d-inline">
+                                                    @csrf
+                                                    @method('Put')
+                                                    <button type="submit" class="btn btn-warning btn-sm mr-1"><i class="nav-icon fas fa-edit mr-2"></i>Edit</button>
+                                                </form>
+                                                <form action="{{ route ('karyawan.destroy', $item->id) }}" method="post" class="d-inline">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="nav-icon fas fa-trash-alt mr-2"></i>Delete</button>
+                                                </form>
+                                            </td>
                                         </tr>
                                         @empty
                                         <td colspan="6" class="text-center">Data Kosong</td>

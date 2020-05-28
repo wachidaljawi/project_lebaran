@@ -21,11 +21,26 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="status">status</label>
+                                        <label for="status">status</label>
+                                        <select name="status" id="status" class="form-control">
+                                            <option value="Karyawan" {{ $status->status == 'Karyawan' ? 'selected' : '' }}>
+                                                Karyawan
+                                            </option>
+                                            <option value="Kontrak" {{ $status->status == 'Kontrak' ? 'selected' : '' }}>
+                                                Kontrak
+                                            </option>
+                                            <option value="Magang" {{ $status->status == 'Magang' ? 'selected' : '' }}>
+                                                Magang
+                                            </option>
+                                        </select>
+                                        @error('status')
+                                            <div class="alert alert-danger">{{$message}}</div>
+                                        @enderror
+                                    {{-- <label for="status">status</label>
                                     <input type="text" class="form-control" id="status"  placeholder="Masukan status anda" name="status" value="{{ $status->status }}">
                                     @error('status')
                                         <div class="alert alert-danger">{{ $message }}</div>
-                                    @enderror
+                                    @enderror --}}
                                 </div>
                             </div>
                         </div>

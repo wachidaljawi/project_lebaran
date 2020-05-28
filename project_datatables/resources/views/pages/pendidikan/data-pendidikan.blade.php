@@ -32,22 +32,16 @@
                                     <th>{{$loop->iteration}}</th>
                                     <td>{{$item->pendidikan}}</td>
                                     <td>
-                                        <div class="row">
-                                            <div class="col-2">
-                                                <form action="{{ route ('pendidikan.edit', $item->id) }}" method="GET">
-                                                    @csrf
-                                                    @method('Put')
-                                                    <button type="submit" class="btn btn-warning btn-sm mb-2"><i class="nav-icon fas fa-edit mr-2"></i>Edit</button>
-                                                </form>
-                                            </div>
-                                            <div class="col-3">
-                                                <form action="{{ route ('pendidikan.destroy', $item->id) }}" method="post">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="nav-icon fas fa-trash-alt mr-2"></i>Delete</button>
-                                                </form>
-                                            </div>
-                                        </div>
+                                        <form action="{{ route ('pendidikan.edit', $item->id) }}" method="GET" class="d-inline">
+                                            @csrf
+                                            @method('Put')
+                                            <button type="submit" class="btn btn-warning btn-sm mb-2"><i class="nav-icon fas fa-edit mr-2"></i>Edit</button>
+                                        </form>
+                                        <form action="{{ route ('pendidikan.destroy', $item->id) }}" method="post" class="d-inline">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="btn btn-danger btn-sm mb-2"><i class="nav-icon fas fa-trash-alt mr-2"></i>Delete</button>
+                                        </form>
                                     </td>
                                 </tr>
                                 @empty
