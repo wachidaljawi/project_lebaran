@@ -48,7 +48,7 @@
                                         <tr class="text-center">
                                             <td></td>
                                             <th>{{$loop->iteration}}</th>
-                                            <td><a href="{{ '/karyawan/'.$item->id }}">{{$item->nama}}</a></td>
+                                            <td>{{$item->nama}}</td>
                                             <td>{{$item->gender}}</td>
                                             <td>{{$item->no_telp}}</td>
                                             <td>{{$item->status->status}}</td>
